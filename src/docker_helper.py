@@ -8,7 +8,7 @@ image_tag = "godot-server"
 client = docker.from_env()
 homedir = os.path.expanduser("~")
 
-path_to_dockerfile = homedir + '/godot/multiplayer/source'
+path_to_dockerfile = homedir + '/godot/multiplayer/docker'
 
 servers_running = False
 
