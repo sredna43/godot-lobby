@@ -101,4 +101,4 @@ def start_all_servers():
     return "<h1>Servers have already been started<h1>"
 
 if __name__ == "__main__":
-    app.run(port=56900, debug=True)
+    app.run(host="0.0.0.0", port=56900, debug=True)
