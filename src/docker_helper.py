@@ -14,8 +14,10 @@ servers_running = False
 
 def get_image():
     try:
+        print("getting image " + image_tag)
         client.get(image_tag)
     except docker.errors.ImageNotFound:
+        print("image " + image_tag + " not found, building...")
         client.images.build(path=path_to_dockerfile, rm=True, tag=image_tag)
     except:
         print("Could not get or build the image " + image_tag)
@@ -23,6 +25,7 @@ def get_image():
 
 def run_container(port):
     try:
+        print("running container with image " + image_tag + ", and port " + str(port))
         client.containers.run(
             image=image_tag, 
             detach=True, 
@@ -30,6 +33,7 @@ def run_container(port):
             ports={str(port) + '/tcp': port, str(port) + '/udp': port}
         )
     except docker.errors.ImageNotFound:
+        print("Image not found error when running")
         return "retry"
     except:
         return "error"
