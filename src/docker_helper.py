@@ -29,7 +29,8 @@ def run_container(port):
             image=image_tag, 
             detach=True, 
             environment={"PORT": port}, 
-            ports={str(port) + '/tcp': port, str(port) + '/udp': port}
+            ports={str(port) + '/tcp': port, str(port) + '/udp': port},
+            network="godot-servers"
         )
     except docker.errors.ImageNotFound:
         get_image()
