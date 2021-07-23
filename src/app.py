@@ -4,7 +4,7 @@ import string
 import docker_helper
 
 lobbies = {}
-open_ports = [25565]
+open_ports = []
 
 def get_passcode(val):
     for code, value in lobbies.items():
@@ -101,4 +101,4 @@ def start_all_servers():
     return "<h1>Servers have already been started<h1>"
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(port=56900, debug=True)
