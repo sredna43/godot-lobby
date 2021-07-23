@@ -33,6 +33,7 @@ def run_container(port):
             ports={str(port) + '/tcp': port, str(port) + '/udp': port}
         )
     except docker.errors.ImageNotFound:
+        get_image()
         print("Image not found error when running")
         return "retry"
     except:
