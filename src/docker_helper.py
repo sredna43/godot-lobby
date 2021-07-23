@@ -21,7 +21,6 @@ def get_image():
         client.images.build(path=path_to_dockerfile, rm=True, tag=image_tag)
     except:
         print("Could not get or build the image " + image_tag)
-        raise Exception()
 
 def run_container(port):
     try:
