@@ -15,7 +15,7 @@ servers_running = False
 def get_image():
     try:
         print("getting image " + image_tag)
-        client.get(image_tag)
+        client.images.get(image_tag)
     except docker.errors.ImageNotFound:
         print("image " + image_tag + " not found, building...")
         client.images.build(path=path_to_dockerfile, rm=True, tag=image_tag)
