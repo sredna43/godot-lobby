@@ -3,6 +3,7 @@ import random
 import string
 import docker_helper
 
+#{passcode: port}
 lobbies = {}
 open_ports = []
 
@@ -14,7 +15,10 @@ def get_passcode(val):
 
 def create_passcode():
     letters = string.ascii_uppercase
-    return ''.join(random.choice(letters) for i in range(6))
+    passcode = ''
+    while passcode in lobbies.keys:
+        passcode = ''.join(random.choice(letters) for i in range(3))
+    return passcode
 
 def get_server(passcode = ""):
     if passcode == "" and len(open_ports) > 0:
