@@ -77,7 +77,8 @@ def add_available_server(port):
 
 @app.route("/server/add/<port>")
 def add_new_server(port):
-    open_ports.append(int(port))
+    if not int(port) in open_ports:
+        open_ports.append(int(port))
     print(lobbies, open_ports)
     return {
         "response": "added"
