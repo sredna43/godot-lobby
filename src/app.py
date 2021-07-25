@@ -15,8 +15,8 @@ def get_passcode(val):
 
 def create_passcode():
     letters = string.ascii_uppercase
-    passcode = ''
-    while passcode in lobbies.keys():
+    passcode = ''.join(random.choice(letters) for i in range(3))
+    while passcode in lobbies:
         passcode = ''.join(random.choice(letters) for i in range(3))
     return passcode
 
